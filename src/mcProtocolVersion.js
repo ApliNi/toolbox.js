@@ -50,12 +50,12 @@ const reg = new RegExp(/((?<![0-9\.])1\.[0-9]{1,2}(\.([0-9]{1,2}|[x|X]{1}))?(?![
 export function getVer(pv, vName, motd){
 	let ver;
 
-	// 尝试从motd中匹配版本号
-	ver = getVerFromMatch(motd.match(reg));
-
 	// 尝试从版本名称中匹配版本号
+	ver = getVerFromMatch(vName.match(reg));
+	
+	// 尝试从motd中匹配版本号
 	if(ver === ''){
-		ver = getVerFromMatch(vName.match(reg));
+		ver = getVerFromMatch(motd.match(reg));
 	}
 
 	// 尝试使用协议版本号
