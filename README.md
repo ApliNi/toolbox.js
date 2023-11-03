@@ -2,7 +2,6 @@
 一些可能有用的js文件
 
 
-<details><summary>sArrLib.js - 为数据库定制 :: 基于字符串的高性能数据存储格式</summary>
 
 ## sArrLib.js
 为数据库定制 :: 基于字符串的高性能数据存储格式
@@ -49,11 +48,6 @@ return '{"data": ['+ sArr +']}';
 // 在发送数据时并不需要将其解码, 可以直接插入JSON字符串
 ```
 
-</details>
-
-
-
-<details><summary>miniTime.js - 可自定义时间范围和分辨率的时间戳</summary>
 
 ## miniTime.js
 可自定义时间范围和分辨率的时间戳. 用于优化大量短期存放数据的体积和索引
@@ -82,11 +76,6 @@ let expirationTime = nowTime - 32 * 24 * 6;
 let time = miniTIme.decompile(miniTimeConfig, nowTime);
 ```
 
-</details>
-
-
-
-<details><summary>mcProtocolVersion.js - 尽可能的通过MC服务器的ping信息获取版本号</summary>
 
 ## mcProtocolVersion.js
 尽可能的通过MC服务器的ping信息获取版本号, 通过协议版本号/ 版本名称/ motd 匹配版本号或版本范围.
@@ -104,4 +93,31 @@ let verName = getVer(pv, vName, motd);
 // verName: '1.16.5 - 1.19.4'
 ```
 
-</details>
+
+## logger.js
+简单的日志格式化模块.
+
+```js
+import { logger } from './logger.js';
+
+logger.info('Message');
+```
+
+
+
+## db.js
+基于 better-sqlite3 的数据库加载模块.
+
+```js
+import { AsyncDB, db } from './db.js';
+
+
+let ver;
+
+// 同步 API
+const a = db.prepare(`SELECT value FROM config WHERE key = ?;`);
+ver = a.get('ver');
+
+// 异步 API
+ver = await AsyncDB.get(`SELECT value FROM config WHERE key = ?;`, ['ver']);
+```
