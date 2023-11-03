@@ -11,7 +11,6 @@
 // [sArr字符串, 数据长度数字]
 ```
 
-### 如何使用
 ```js
 // 创建 sArrObj
 let sArr = sArrLib.new(100);
@@ -49,12 +48,13 @@ return '{"data": ['+ sArr +']}';
 ```
 
 
+---
+
+
 ## miniTime.js
 可自定义时间范围和分辨率的时间戳. 用于优化大量短期存放数据的体积和索引
 
 ![image](https://github.com/ApliNi/miniTime.js/assets/59365724/9549a8e4-c1c5-4529-9bb7-f52092f8dfd4)
-
-### 如何使用
 
 ```js
 import { miniTime } from './Util/timeLib.js';
@@ -77,10 +77,11 @@ let time = miniTIme.decompile(miniTimeConfig, nowTime);
 ```
 
 
+---
+
+
 ## mcProtocolVersion.js
 尽可能的通过MC服务器的ping信息获取版本号, 通过协议版本号/ 版本名称/ motd 匹配版本号或版本范围.
-
-### 如何使用
 
 ```js
 import { miniTime } from './Util/timeLib.js';
@@ -94,6 +95,9 @@ let verName = getVer(pv, vName, motd);
 ```
 
 
+---
+
+
 ## logger.js
 简单的日志格式化模块.
 
@@ -102,6 +106,9 @@ import { logger } from './logger.js';
 
 logger.info('Message');
 ```
+
+
+---
 
 
 
